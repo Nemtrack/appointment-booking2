@@ -1,0 +1,51 @@
+<div class="text-center">
+  <h1>{{ work.name }} at {{ company.name }}!</h1>
+  <h4>Description: {{ work.description }}</h4>
+  <h5>Duration: {{ work.duration }} minutes</h5>
+</div>
+<div *ngIf="!editMode" class="text-center">
+  <p-button
+    styleClass="p-button-success"
+    (onClick)="addToReservation()"
+    [disabled]="!isCanAddWorkToReservations"
+    >Add to reservation</p-button
+  >
+  <p-button
+    styleClass="p-button-primary"
+    (onClick)="this.editMode = true"
+    [disabled]="!isCanAddWorkToReservations || isWorkInReservables"
+    >Edit Work</p-button
+  >
+  <p-button
+    styleClass="p-button-danger"
+    (onClick)="deleteWork()"
+    [disabled]="!isCanAddWorkToReservations || isWorkInReservables"
+    >Delete Work</p-button
+  >
+</div>
+
+<div *ngIf="!this.isCanAddWorkToReservations" class="text-danger align-middle">
+  <p>
+    You cannot add more than one instance of a reservation or reservations from
+    different companies!
+  </p>
+  <h5>Redirecting in: {{ this.countDown }}</h5>
+</div>
+
+<div class="text-center" *ngIf="!editMode">
+  <p-button
+    styleClass="p-button-primary"
+    [disabled]="!isCanAddWorkToReservations"
+    [routerLink]="['/reservation', this.company.id]"
+    >Add works as reservation!</p-button
+  >
+</div>
+
+<app-work-edit
+  [workName]="this.work.name"
+  [workDesc]="this.work.description"
+  [workDuration]="this.work.duration"
+  [workId]="this.work.id"
+  [isAddMode]="!editMode"
+  *ngIf="this.editMode"
+></app-work-edit>

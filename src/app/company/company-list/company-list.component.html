@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-12">
+    <p-button
+      routerLink="/companies/new"
+      label="New Company"
+      styleClass="p-button-success"
+    ></p-button>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-12">
+    <app-company-item
+      [company]="companyEl"
+      *ngFor="let companyEl of companies; let i = index"
+      [index]="i"
+    ></app-company-item>
+  </div>
+</div>

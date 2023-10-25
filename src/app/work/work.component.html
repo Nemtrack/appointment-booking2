@@ -1,0 +1,26 @@
+<h1>{{ currentCompany.name }}</h1>
+<a
+  *ngFor="let works of currentCompany.works; let i = index"
+  class="list-group-item clearfix"
+  [routerLink]="['/reservation', works.companyId, i]"
+>
+  <div class="pull-left">
+    <h2 class="list-group-item-heading">{{ works.name }}</h2>
+    <h5>{{ works.description }}</h5>
+    <h6 class="float-end">{{ works.duration }} minutes</h6>
+  </div>
+</a>
+<p-button
+  *ngIf="!isAddMode"
+  (onClick)="onNavigateToAdd()"
+  styleClass="p-button-success"
+  >Add work!</p-button
+>
+<div class="text-center">
+  <p-button
+    styleClass="p-button-primary"
+    [routerLink]="['/reservation', this.currentCompany.id]"
+    >Add works as reservation!</p-button
+  >
+</div>
+<router-outlet></router-outlet>

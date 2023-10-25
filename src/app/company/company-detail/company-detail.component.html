@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-12">
+    <h1>{{ company.name }}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div>
+      <p-dropdown
+        [options]="settings"
+        [(ngModel)]="selectedSetting"
+        optionLabel="name"
+        placeholder="Manage Company"
+        (onClick)="onDropdownClicked()"
+      ></p-dropdown>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">Address: {{ company.address }}</div>
+</div>
+<div class="row">
+  <div class="col-12">Business Hours: {{ company.businessHours }}</div>
+</div>
+<div class="row">
+  <div *ngIf="company.works.length > 0" class="col-12">Reserve a Meeting:</div>
+  <p-button
+    (onClick)="onAddClicked()"
+    styleClass="p-button-success"
+    *ngIf="company.works.length < 1"
+    >Add Works!</p-button
+  >
+</div>
+<div class="row" *ngFor="let works of company.works">
+  <div class="col-12">
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        [routerLink]="['/work', id]"
+        style="cursor: pointer"
+      >
+        {{ works.name + " - " + works.description }}
+      </li>
+    </ul>
+  </div>
+</div>

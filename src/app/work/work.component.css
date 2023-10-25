@@ -1,0 +1,22 @@
+h1{
+  text-align: center;
+}
+
+.list-group-item {
+  border: 2px solid #ddd;
+  border-radius: 5px; /* Kerekített élek a kereten */
+  transition: background-color 0.3s, color 0.3s;
+  padding: 10px; /* Távolság a keret és a szöveg között */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+}
+
+.list-group-item:hover {
+  background-color: black; /* vagy bármilyen más elhalványuló háttérszín */
+  color: white;
+}
+
+.active{
+  background-color: #f5f5f5;
+}

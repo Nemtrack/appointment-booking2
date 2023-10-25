@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-12">
+    <form (ngSubmit)="onAddWork(workF)" #workF="ngForm">
+      <div class="row">
+        <div class="col-12">
+          <p-button
+            styleClass="p-button-success"
+            type="submit"
+            [disabled]="workF?.invalid || false"
+            >{{ isAddMode ? "Add" : "Edit" }} Work</p-button
+          >
+          <p-button styleClass="p-button-danger" routerLink="/companies"
+            >Cancel</p-button
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="workName">Name:</label>
+            <input
+              type="text"
+              name="workName"
+              id="workName"
+              class="form-control"
+              [ngModel]="workName"
+              placeholder="Work's name"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="workDesc">Description:</label>
+            <input
+              type="text"
+              name="workDesc"
+              id="workDesc"
+              class="form-control"
+              [ngModel]="workDesc"
+              placeholder="Work's Description"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p class="form-group">
+            <label for="workDuration">Duration:</label>
+            <input
+              [placeholder]="'Minutes of duration'"
+              name="workDuration"
+              type="number"
+              id="workDuration"
+              class="form-control"
+              [ngModel]="workDuration"
+              placeholder="Work's duration"
+              required
+            />
+          </p>
+        </div>
+      </div>
+      <p style="color: red" *ngIf="workF.invalid && workF.touched && workF.dirty">
+        Please enter valid information!
+      </p>
+    </form>
+  </div>
+</div>

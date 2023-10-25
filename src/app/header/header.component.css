@@ -1,0 +1,14 @@
+a:not(.active) {
+  pointer-events: none;
+  cursor: default; /* Ezzel elkerüljük, hogy a kurzor megváltozzon */
+}
+
+a.active {
+  pointer-events: none;
+  cursor: default; /* Ezzel elkerüljük, hogy a kurzor megváltozzon */
+}
+
+a.company {
+  pointer-events: auto;
+  cursor: pointer;
+}

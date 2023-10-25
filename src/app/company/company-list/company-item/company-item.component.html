@@ -1,0 +1,16 @@
+<a
+  [routerLink]="[index]"
+  routerLinkActive="active"
+  class="list-group-item clearfix"
+>
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ company.name }}</h4>
+    <!-- <p class="list-group-item-text">Address: {{ company.address }}</p>
+    <p class="list-group-item-text">
+      Work Hours: {{ company.businessHours }}
+    </p> -->
+    <p class="list-group-item-text">
+      {{ companyWorks ? "Works: " + companyWorks : "Click to add Work!" }}
+    </p>
+  </div>
+</a>

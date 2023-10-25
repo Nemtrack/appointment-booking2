@@ -1,0 +1,107 @@
+<form (ngSubmit)="onAddReservation(reservationF)" #reservationF="ngForm">
+  <div class="row">
+    <div class="col-12">
+      <p-button
+        styleClass="p-button-success"
+        type="submit"
+        [disabled]="reservationF?.invalid || false || reservableArrayLength < 1"
+        >Add Reservation</p-button
+      >
+      <p-button
+        class="button"
+        styleClass="p-button-danger"
+        routerLink="/companies"
+        >Cancel</p-button
+      >
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-5">
+        <div class="userdata">
+          <span class="p-float-label">
+            <input
+              required
+              pInputText
+              id="resName"
+              name="resName"
+              class="form-control"
+              (ngModel)="(resName)"
+            />
+            <label htmlFor="resName">Name</label>
+          </span>
+        </div>
+        <div class="userdata">
+          <span class="p-float-label">
+            <input
+              required
+              pInputText
+              pattern="^[+]?[0-9]{11}$"
+              id="resPhone"
+              name="resPhone"
+              class="form-control"
+              (ngModel)="(resPhone)"
+            />
+            <label htmlFor="resPhone">Phone Number</label>
+          </span>
+        </div>
+        <div class="userdata">
+          <span class="p-float-label">
+            <input
+              required
+              email
+              pInputText
+              id="resEmail"
+              name="resEmail"
+              class="form-control"
+              (ngModel)="(resEmail)"
+            />
+            <label htmlFor="resEmail">E-mail</label>
+          </span>
+        </div>
+        <div class="userdata">
+          <span class="p-float-label"
+            ><p-calendar
+              #calendar
+              id="resDate"
+              name="resDate"
+              [(ngModel)]="date"
+              [minDate]="minDate"
+              [showTime]="true"
+              [stepMinute]="30"
+              [showTransitionOptions]="'300ms'"
+              ><ng-template class="text-center" pTemplate="footer"
+                >Please choose the date and time of your
+                reservation!</ng-template
+              ></p-calendar
+            >
+            <label htmlFor="resDate">Date</label></span
+          >
+        </div>
+        <p style="color: red" *ngIf="reservableArrayLength < 1">
+          You have to add works to make a reservation!
+        </p>
+        <p
+          style="color: red"
+          *ngIf="
+            reservationF.invalid && reservationF.touched && reservationF.dirty
+          "
+        >
+          Please enter valid information!
+        </p>
+      </div>
+      <div class="col-7">
+        <div class="item" *ngFor="let work of reservableWorks">
+          <h2 class="list-group-item-heading">{{ work.name }}</h2>
+          <h5>{{ work.description }}</h5>
+          <h6>{{ work.duration }} minutes</h6>
+        </div>
+        <h4 *ngIf="reservableDuration">
+          Total duration: {{ reservableDuration }} minutes
+        </h4>
+      </div>
+    </div>
+  </div>
+</form>
+
+<app-popup [message]="newReservation" (isPopupClosed)="closePopup($event)" *ngIf="showPopup"></app-popup>

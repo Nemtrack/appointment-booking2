@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-12">
+    <form (ngSubmit)="onAddCompany(companyF)" #companyF="ngForm">
+      <div class="row">
+        <div class="col-12">
+          <p-button
+            styleClass="p-button-success"
+            type="submit"
+            [disabled]="companyF?.invalid || false"
+            >{{ isEditMode === false ? "Add" : "Edit" }} Company</p-button
+          >
+          <p-button styleClass="p-button-danger" routerLink="/companies"
+            >Cancel</p-button
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="companyName">Name:</label>
+            <input
+              type="text"
+              name="companyName"
+              id="companyName"
+              class="form-control"
+              [ngModel]="companyName"
+              placeholder="Company's name"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="companyAddress">Address:</label>
+            <input
+              type="text"
+              name="companyAddress"
+              id="companyAddress"
+              class="form-control"
+              [ngModel]="companyAddress"
+              placeholder="Company's address"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p class="form-group">
+            <label for="companyHours">Business Hours:</label>
+            <input
+              [placeholder]="'Ex: MONDAY:0900-1700,TUESDAY:0900-1700'"
+              name="companyHours"
+              id="companyHours"
+              class="form-control"
+              [ngModel]="companyHours"
+              placeholder="Company's business hours"
+              required
+            />
+          </p>
+        </div>
+      </div>
+      <p style="color: red" *ngIf="companyF.invalid && companyF.touched">
+        Please enter valid information!
+      </p>
+    </form>
+  </div>
+</div>

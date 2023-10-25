@@ -1,0 +1,12 @@
+<div class="backdrop"></div>
+<div class="alert-box">
+  <h3>Reservation successfully made!</h3>
+  <p>Total duration: {{ message.duration }} minutes</p>
+  <p>Reserved for: {{ message.name }}</p>
+  <p>Phone number: {{ message.phone }}</p>
+  <p>E-mail: {{ message.email }}</p>
+  <p>Reserved at: {{ message.date }}</p>
+  <div class="alert-box-actions">
+    <p-button (onClick)="onClosePopup()">Close</p-button>
+  </div>
+</div>
