@@ -14,30 +14,30 @@ This is an appointment booking application made with [Angular CLI](https://githu
 ### 1. Home / Companies Page
 - This page lets you add new companies, or edit existing ones
 - Interaction:
-* Use "New Company" to add new company, or click on existing ones to change it.
-* Click "Add Company" to add company if form is correct or "Cancel" to cancel the form application
-* Click "Update" to update the formerly selected company.
-* Fill in the three FormControl elements to make the form submittable
-* Click the manage company dropdown, to select your preferred interaction.
-   * You can only delete a company, if there aren't any works which can get reservations.
-   * You can only edit the company's credentials if there aren't any works which can get reservations.
-* Here you can add works, which routes you to the next site.
+  * Use "New Company" to add new company, or click on existing ones to change it.
+  * Click "Add Company" to add company if form is correct or "Cancel" to cancel the form application
+  * Click "Update" to update the formerly selected company.
+  * Fill in the three FormControl elements to make the form submittable
+  * Click the manage company dropdown, to select your preferred interaction.
+     * You can only delete a company, if there aren't any works which can get reservations.
+     * You can only edit the company's credentials if there aren't any works which can get reservations.
+  * Here you can add works, which routes you to the next site.
 
 ### 2. Works Page
 - This page lets you add works to your existing company.
 - Validations are present, therefore you cannot apply invalid form (first guard).
 - Interaction:
-* Use "Add Work" to add works
-* Use "Cancel" to cancel the form
-* Use "Add works as reservation" to add your works to the reservation page
-* You can click on a work to route to the "reservation" page
+  * Use "Add Work" to add works
+  * Use "Cancel" to cancel the form
+  * Use "Add works as reservation" to add your works to the reservation page
+  * You can click on a work to route to the "reservation" page
 
 ### 3. Reservation Page
 - This page lets you add your selected works as a reservation
 - Additional guards are present, so you cannot add more than one instance of the same work
 - Interaction:
-* Use "Add to reservation", "Edit Work", "Delete Work" or "Add works as reservation!" to access the according functionality
-* You can select multiple reservations based off of their duration and company hours.
+  * Use "Add to reservation", "Edit Work", "Delete Work" or "Add works as reservation!" to access the according functionality
+  * You can select multiple reservations based off of their duration and company hours.
 
 ## Code Examples
 
